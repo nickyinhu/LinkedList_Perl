@@ -47,6 +47,7 @@ sub delete_node {
 		if($cur->get_next()->get_val() == $val){
 			$cur->_set_next($cur->get_next()->get_next());
 			$self->_set_size($self->get_size()-1);
+			return;
 		}
 		$cur = $cur->get_next();		
 	}
