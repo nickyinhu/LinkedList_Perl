@@ -33,9 +33,11 @@ sub delete_node {
 		if($head->get_next()){
 			my $newhead = $head->get_next();
 			$self->set_head($newhead);
+			$self->_set_size($self->get_size()-1);
 			return;
 		} else {
 			$self = new LinkedList->new();
+			$self->_set_size(0);
 			return;
 		}
 	}
