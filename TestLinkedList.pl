@@ -1,5 +1,7 @@
 use LinkedList;
-use 5.12.0;
+use strict;
+use warnings;
+use feature 'say';
 
 my $list = LinkedList->new();
 
