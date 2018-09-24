@@ -6,10 +6,11 @@ use warnings;
 use Node;
 
 has 'head' => (
-	is     =>'ro',
-	isa    =>'Node',
-	reader => 'get_head',
-	writer => '_set_head',
+	is      =>'ro',
+	isa     =>'Undef|Node',
+	default => sub {return undef},
+	reader  => 'get_head',
+	writer  => '_set_head',
 	documentation => 'The head of the linked list',
 );
 
@@ -62,7 +63,7 @@ sub delete_node {
 			return;
 		# Head is the only node, remove the head, make self an empty list
 		} else {
-			$self = new LinkedList->new();
+			$self->_set_head(undef);
 			$self->_set_size(0);
 			return;
 		}
